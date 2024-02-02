@@ -1,0 +1,59 @@
+<p> Welcome Aboard to the Wonderful world of Tabby Cats! <span id="name-display"></span></p>
+<p>For Refernece the email you used to sign up was : <span id="email-display"></span></p>
+
+<link rel="stylesheet" href="style.css">
+<main>
+    <section id="tabby-cat">
+        <h2>About your membership</h2>
+        <p>This section provides general information about tabby cats. You will get daily updates, images and more about Tabby Cats</p>
+        <h3>Enjoy Today's Interesting Facts</h3>
+        <ul>
+            <li><b>Tabby is not a breed:</b> Tabby is a pattern of markings on a cat’s body, and almost every cat breed has members that are considered tabby cats</li>
+            <li><b>Tabby cats have the letter M on their forehead:</b>  A tabby cat’s defining characteristic is the letter M’s presence on the cat’s forehead between the ears. They will also have stripes by the eyes and across the cheeks</li>
+        </ul>
+    </section>
+</main>
+
+<script>
+
+    var queryString = window.location.search;
+    
+
+    var params = new URLSearchParams(queryString);
+    
+
+    var name = params.get("name");
+    var email = params.get("email");
+    
+
+    document.getElementById("name-display").innerHTML = name;
+    document.getElementById("email-display").innerHTML = email;
+</script>
+
+<button id="dark-mode-toggle" style="position: fixed; bottom: 15px; right: 15px;">Toggle Dark Mode</button>
+<script>
+    const toggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+
+
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+        toggle.innerText = savedTheme === 'dark-mode' ? 'Light Mode' : 'Dark Mode';
+    } else {
+        toggle.innerText = 'Dark Mode';
+    }
+
+    toggle.addEventListener('click', () => {
+        if (body.classList.contains('dark-mode')) {
+            body.classList.remove('dark-mode');
+            toggle.innerText = 'Dark Mode';
+            localStorage.setItem('theme', '');
+        } else {
+            body.classList.add('dark-mode');
+            toggle.innerText = 'Light Mode';
+            localStorage.setItem('theme', 'dark-mode');
+        }
+    });
+</script>
+

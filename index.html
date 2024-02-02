@@ -1,1 +1,113 @@
-<html><body>hello world!</body></html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction to Tabby Cats</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        img {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+            display: inline-block;
+        }
+        header {
+            text-align: center;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .image-gallery img {
+            margin: 10px;
+        }
+        .facts {
+            margin-bottom: 20px;
+        }
+        .quiz {
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-color:rgb(37, 171, 168);">
+    <div class="container">
+        <header>
+            <h1><b>Introduction to the Wonderful Known Felines Called the "Tabby Cats"</b></h1>
+            <div class="intro">
+                <p>This website will go in depth the Tabby Cat discussing many broad topics and analysis solely based on the "Tabby Cat"</p>
+                <p>Tabby Cat Lovers Only No Hating Allowed</p>
+            </div>
+        </header>
+        <div class="image-gallery">
+            <img src="Tabby.jpg" alt="The Orange Tabby Cat">
+            <img src="cat.png" alt="Another Tabby Cat">
+            <img src="cat1.jpg" alt="Another Cat">
+            <img src="18.webp">
+            <img src="19.jpeg">
+            <img src="Tabby.jpg">
+            <img src="images.png">
+        </div>
+        <div class="facts">
+            <h1>Joining the Tabby Cat Club</h2>
+                <p>"Did you know that tabby cats are not a breed, but a pattern of markings on their fur? Or that they have a distinctive letter M on their forehead? Or that they come in a variety of colors and personalities?"</p>
+                <p>If you want to learn more about these amazing felines and learn interesting facts like the one above, you're in the right place. Our website is dedicated to providing you with the most comprehensive and up-to-date information about tabby cats. You'll find articles, videos, quizzes, and more to satisfy your curiosity and love for tabby cats.</p>
+            </div>
+            <div class="quiz">
+                <p>But wait, there's more! As a member of our website, you'll get access to exclusive content and benefits that are not available to the public. You'll be able to:</p>
+                <ul>
+                    <p>Join our online community of tabby cat lovers and share your stories, photos, and questions.</p>
+                    <p>Get personalized advice and tips from our experts and veterinarians.</p>
+                    <p>Receive discounts and offers from our partners and sponsors.</p>
+                    <p>And much more!</p>
+                </ul>
+                <p>So what are you waiting for? Become a member today and join the ultimate tabby cat club. It's easy, fast, and affordable. Just click the button below and fill out a simple form. You'll be glad you did!</p>
+                <a href="page1.html"><b>Become a Member Now</b></a>
+            </div>      
+        </div>
+        <button id="dark-mode-toggle" style="position: fixed; bottom: 15px; right: 15px;">Toggle Dark Mode</button>
+        <script>
+            const toggle = document.getElementById('dark-mode-toggle');
+            const body = document.body;
+            const savedTheme = localStorage.getItem('theme');
+        
+
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+                toggle.innerText = savedTheme === 'dark-mode' ? 'Light Mode' : 'Dark Mode';
+            } else {
+                toggle.innerText = 'Dark Mode';
+            }
+        
+            toggle.addEventListener('click', () => {
+                if (body.classList.contains('dark-mode')) {
+                    body.classList.remove('dark-mode');
+                    toggle.innerText = 'Dark Mode';
+                    localStorage.setItem('theme', '');
+                } else {
+                    body.classList.add('dark-mode');
+                    toggle.innerText = 'Light Mode';
+                    localStorage.setItem('theme', 'dark-mode');
+                }
+            });
+        </script>
+        
+    </body>
+    
+    </html>
+
+

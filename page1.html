@@ -1,0 +1,67 @@
+<html>
+
+<head> 
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: orange;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            position: top; 
+            top: 0; 
+            width: 100%; 
+            margin: 100; 
+        }
+        img {
+            position: center;
+            margin-bottom: 50px; 
+        }
+        form {
+            margin-top: 150px; 
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="rainbow-h1">Join the Tabby Cat Club. It's Purr-fect!</h1>
+    <img src="tabby2.gif">
+    <form action="page2.html" method="get">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <input type="submit" value="Submit">
+    </form>
+    <button id="dark-mode-toggle" style="position: fixed; bottom: 15px; right: 15px;">Toggle Dark Mode</button>
+    <script>
+        const toggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+        const savedTheme = localStorage.getItem('theme');
+    
+
+        if (savedTheme) {
+            body.classList.add(savedTheme);
+            toggle.innerText = savedTheme === 'dark-mode' ? 'Light Mode' : 'Dark Mode';
+        } else {
+            toggle.innerText = 'Dark Mode';
+        }
+    
+        toggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                toggle.innerText = 'Dark Mode';
+                localStorage.setItem('theme', '');
+            } else {
+                body.classList.add('dark-mode');
+                toggle.innerText = 'Light Mode';
+                localStorage.setItem('theme', 'dark-mode');
+            }
+        });
+    </script>
+</body>
+</html>
+
