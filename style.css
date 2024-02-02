@@ -1,0 +1,35 @@
+img {
+    width: 150px;
+    height: auto;
+    margin-right: 10px;
+    display: inline-block;
+    padding: 80px;
+}
+
+h1 {
+    color: rgb(4, 78, 250);
+}
+p {
+    color: rgb(32, 31, 31);
+}
+
+p.normal {
+    font-weight: normal;
+}
+
+p {
+    color: rgb(0, 21, 252);
+}
+
+p {
+    font-size: 50px;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode img {
+    filter: brightness(0.8);
+}
