@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>Dog Breed Search</title>
+    <style>
+        body {
+            background-color: rgb(55, 255, 0);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            position: top; 
+            top: 0; 
+            width: 100%; 
+            margin: 100; 
+        }
+        img {
+            position: center;
+            margin-bottom: 50px; 
+        }
+        form {
+            margin-top: 150px; 
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="breed-input" list="breeds" placeholder="Type a dog breed..." />
+    <datalist id="breeds"></datalist>
+    <button id="show-images">Show Images</button>
+    <div id="image-container"></div>
+    
+    <script>
+        const input = document.getElementById('breed-input');
+        const button = document.getElementById('show-images');
+        const imageContainer = document.getElementById('image-container');
+        const dataList = document.getElementById('breeds');
+        let breeds = [];
+        
+        fetch('https://dog.ceo/api/breeds/list/all')
+        .then(response => response.json())
+        .then(data => {
+            breeds = Object.keys(data.message);
+            breeds.forEach(breed => {
+                const option = document.createElement('option');
+                option.value = breed;
+                dataList.appendChild(option);
+            });
+        });
+        
+        button.addEventListener('click', () => {
+            imageContainer.innerHTML = '';
+            
+            const breed = input.value;
+            if (!breeds.includes(breed)) {
+                imageContainer.innerHTML = 'No such breed';
+                return;
+            }
+            fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
+            .then(response => response.json())
+            .then(data => {
+                const img = document.createElement('img');
+                img.src = data.message;
+                imageContainer.appendChild(img);
+                setTimeout(() => {
+                    imageContainer.removeChild(img);
+                    button.click();
+                }, 5000);
+            });
+        });
+    </script>
+</body>
+</html>
